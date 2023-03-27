@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR code generator</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Q-R code generator</h1>
+        <p>Convert anything to a qr-code</p>
+      </header>
+
+      <main>
+        <input
+          type="text"
+          name="Text"
+          id="text-data"
+          placeholder="Enter text or url "
+        />
+        <p>And your qr code will be converted for you almost instantly</p>
+
+        <label for="file-data" id="file-data-label"
+          >Or upload a file (.jpg, .pdf, .mp3, .docx)</label
+        >
+        <input type="file" name="file" id="file-data" />
+
+        <div id="drop-zone">
+          <h3>Drap and drop file</h3>
+        </div>
+
+        <div id="qr-output"></div>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

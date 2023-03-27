@@ -60,18 +60,12 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 300px;
-  height: 250px;
+  width: 320px;
+  height: 320px;
   border: 2px dashed gray;
   border-radius: 5px;
   padding: 10px;
   margin: 20px;
-}
-
-#qr-output {
-  padding: 5px;
-  width: 320px;
-  height: 320px;
 }
 
 #file-data {
@@ -92,4 +86,19 @@ p {
 
 #file-data {
   display: none;
+}
+
+#download {
+  width: 9rem;
+  padding: 5px;
+  margin: 7px 10px 7px auto;
+  display: block;
+  background-color: transparent;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 3px;
+}
+
+#download:hover {
+  color: rgb(236, 236, 236);
+  background-color: rgb(37, 37, 37);
 }

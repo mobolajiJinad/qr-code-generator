@@ -2,6 +2,7 @@ const textData = document.getElementById("text-data");
 const fileData = document.getElementById("file-data");
 const dropZone = document.getElementById("drop-zone");
 const qrOutput = document.getElementById("qr-output");
+const downloadButton = document.getElementById("download");
 
 textData.addEventListener("keypress", (e) => {
   try {
@@ -20,7 +21,13 @@ textData.addEventListener("keypress", (e) => {
       qrOutput.appendChild(img);
 
       e.target.value = "";
-      qrOutput.scrollIntoView({ behavior: "smooth", block: "end" });
+
+      downloadButton.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      downloadButton.href = img.src;
     }
   } catch (err) {
     console.log(err);
@@ -53,7 +60,12 @@ fileData.addEventListener("change", (e) => {
 
         qrOutput.appendChild(img);
 
-        qrOutput.scrollIntoView({ behavior: "smooth", block: "end" });
+        downloadButton.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        downloadButton.href = img.src;
       };
     }
   } catch (err) {
@@ -101,17 +113,42 @@ dropZone.addEventListener(
 
         qrOutput.appendChild(img);
 
-        qrOutput.scrollIntoView({ behavior: "smooth", block: "end" });
+        downloadButton.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        downloadButton.href = img.src;
       };
     }
   },
   false
 );
 
+downloadButton.addEventListener("click", (e) => {
+  const img = qrOutput.querySelector("img");
+
+  if (img) {
+    downloadButton.download = "qr-code.png";
+    downloadButton.href = img.src;
+    // downloadButton.click();
+  } else {
+    alert("Generate a code first");
+  }
+});
+
 const getAndReviewFile = (files) => {
   try {
-    const selectedFile = files[0];
-    const fileSize = selectedFile.size;
+    let selectedFile;
+    let fileSize;
+
+    if (files.files) {
+      selectedFile = files.files[0];
+      fileSize = selectedFile.size;
+    } else {
+      selectedFile = files[0];
+      fileSize = selectedFile.size;
+    }
 
     if (fileSize <= 5_000) {
       return selectedFile;

@@ -9,7 +9,7 @@ An app that allows you generate qr codes.
 
 ## Note:
 
-Files get squishy due to size of the file ouput.
+Beware of large files, qr code might get squishy
 
 ## Contributing
 
